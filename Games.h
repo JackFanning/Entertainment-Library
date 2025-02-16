@@ -11,25 +11,17 @@ class Games
 {
 public:
     Games();
+    void setName(string n);
+    void setGenre(string g);
+    void setHoursPlayed(float hp);
+    void setstorageSize(float s);
+    void setGameDetails(string n, string g, float hp, float s);
     void displayDetails();
+
     ~Games();
 
-    Games(string, string, float, float);
-
-    void setName();
-    string getName();
     
-    void setGenre();
-    string getGenre();
 
-    void sethoursPlayed();
-    float gethoursPlayed();
-
-    void setstorageSize();
-    float getstorageSize();
-
-
-    
 
 private:
 
