@@ -1,5 +1,4 @@
 #include "Games.h"
-#include <iostream>
 
 Games::~Games()
 {
@@ -16,7 +15,6 @@ void Games::display()
 {
     ParentClass::display();
     cout << " Hours Played: \t" << hoursPlayed << endl;
-    cout << " Storage Size: \t" << storageSize << "GB" << endl;
 }
 
 void Games::setHoursPlayed(float hp)
@@ -37,17 +35,15 @@ void Games::setstorageSize(float s)
         cout << " \n" << endl;
         cout << "Game size should be more than 0GB! Setting default to 1GB.. \n" << endl;
         storageSize = 1;
-    } 
+    }
     else {
         storageSize = s;
     }
-    
+
 }
 
 
-void Games::setGameDetails(string n, string g, float hp, float s) {
-    name = n;
-    genre = g;
+void Games::setGameDetails(float hp, float s) {
     hoursPlayed = hp;
     storageSize = s;
 
@@ -59,6 +55,7 @@ void Games::setGameDetails(string n, string g, float hp, float s) {
         storageSize = s;
     }
 
+
     if (hoursPlayed < 0){
     cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;
     hoursPlayed = 1;
@@ -66,4 +63,14 @@ void Games::setGameDetails(string n, string g, float hp, float s) {
     else{
     hoursPlayed = hp;
     }
+}
+
+
+void Games::displayDetails()
+{
+    cout << "Name: " << name << endl;
+    cout << "Genre: " << genre << endl;
+    cout << "Hours Played: " << hoursPlayed << endl;
+    cout << "Storage Size: " << storageSize << "GB" << endl;
+    cout << " \n" << endl;
 }
