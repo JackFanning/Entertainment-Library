@@ -16,6 +16,7 @@ class Books: public ParentClass
         void setBookDetails(int cp);
         void display();
         int current_page;
+
     protected:
 
     private:

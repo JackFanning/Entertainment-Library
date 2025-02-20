@@ -24,7 +24,6 @@ void Books::setBookDetails(int cp) {
     }
 }
 
-
 void Books::display()
 {
     ParentClass::display();

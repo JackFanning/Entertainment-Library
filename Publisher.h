@@ -26,6 +26,9 @@ class Publisher
         string GetreleasedTitles() { return releasedTitles; }
         void SetreleasedTitles(string val) { releasedTitles = val; }
 
+
+        void setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released);
+
     protected:
 
     private:

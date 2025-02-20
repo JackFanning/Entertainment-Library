@@ -14,7 +14,10 @@ class ParentClass: public Publisher
 
         string name;
         string genre;
+
         Publisher publisher;
+        Publisher getPublisher();
+        void setPublisher(Publisher p);
     protected:
 
     private:

@@ -11,6 +11,18 @@ void ParentClass::setDetails(string n, string g)
     genre = g;
 }
 
+void ParentClass::setPublisher(Publisher p)
+{
+    publisher = p;
+    cout << "\npublisher set\n";
+}
+
+Publisher ParentClass::getPublisher()
+{
+    return publisher;
+}
+
+
 void ParentClass::display()
 {
     cout << "\n Title: \t" << name
