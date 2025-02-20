@@ -25,6 +25,7 @@ class ParentClass
 
 
         void display();
+        void setDetails(string n, string g, string p);
 
         string name;
         string genre;
