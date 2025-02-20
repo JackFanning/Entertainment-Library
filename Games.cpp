@@ -18,19 +18,6 @@ void Games::display()
     cout << " Hours Played: \t" << hoursPlayed << endl;
 }
 
-
-void Games::setName(string n)
-{
-    name = n;
-}
-
-
-void Games::setGenre(string g)
-{
-    genre = g;
-}
-
-
 void Games::setHoursPlayed(float hp)
 {
     if (hp < 0){
