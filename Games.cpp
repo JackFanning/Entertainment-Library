@@ -16,6 +16,7 @@ void Games::display()
 {
     ParentClass::display();
     cout << " Hours Played: \t" << hoursPlayed << endl;
+    cout << " Storage Size: \t" << storageSize << "GB" << endl;
 }
 
 void Games::setHoursPlayed(float hp)
@@ -66,14 +67,3 @@ void Games::setGameDetails(string n, string g, float hp, float s) {
     hoursPlayed = hp;
     }
 }
-
-
-void Games::displayDetails()
-{
-    cout << "Name: " << name << endl; 
-    cout << "Genre: " << genre << endl;
-    cout << "Hours Played: " << hoursPlayed << endl;
-    cout << "Storage Size: " << storageSize << "GB" << endl; 
-    cout << " \n" << endl;
-}
-
