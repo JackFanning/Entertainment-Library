@@ -65,7 +65,6 @@ void Games::setGameDetails(string n, string g, float hp, float s) {
         storageSize = s;
     }
 
-
     if (hoursPlayed < 0){
     cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;
     hoursPlayed = 1;
