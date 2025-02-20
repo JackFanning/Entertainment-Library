@@ -1,6 +1,7 @@
 #ifndef GAMES_H
 #define GAMES_H
 #include "ParentClass.h"
+#include "Publisher.h"
 
 class Games: public ParentClass
 {

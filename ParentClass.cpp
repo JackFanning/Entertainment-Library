@@ -1,22 +1,21 @@
 #include "ParentClass.h"
 
-ParentClass::ParentClass() : name("N/A"), genre("N/A"), publisher("N/A")
+ParentClass::ParentClass() : name("N/A"), genre("N/A")
 {
     //ctor
 }
 
-void ParentClass::setDetails(string n, string g, string p)
+void ParentClass::setDetails(string n, string g)
 {
     name = n;
     genre = g;
-    publisher = p;
 }
 
 void ParentClass::display()
 {
-    cout << "\n Title: \t" << Getname()
-    << "\n Genre: \t" << Getgenre()
-    << "\n Publisher:\t" << Getpublisher() << endl;
+    cout << "\n Title: \t" << name
+    << "\n Genre: \t" << genre << endl;
+    //<< "\n Publisher:\t" << Getpublisher() << endl;
 }
 
 ParentClass::~ParentClass()

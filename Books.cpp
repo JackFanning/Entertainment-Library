@@ -6,11 +6,10 @@ Books::Books() : current_page(0)
     //ctor
 }
 
-Books::Books(string nam, string gen, string pub, int curPage)
+Books::Books(string nam, string gen, int curPage)
 {
     name = nam;
     genre = gen;
-    publisher = pub;
     current_page = curPage;
 }
 
