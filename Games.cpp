@@ -7,9 +7,15 @@ Games::~Games()
 }
 
 
-Games::Games()
+Games::Games() : hoursPlayed(0), storageSize(0)
 {
 
+}
+
+void Games::display()
+{
+    ParentClass::display();
+    cout << " Hours Played: \t" << hoursPlayed << endl;
 }
 
 
