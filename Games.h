@@ -3,20 +3,20 @@
 #include "ParentClass.h"
 #include "Publisher.h"
 
-class Games: public ParentClass
+class Games: public ParentClass          //Implemenation of inheritence relationship
 {
 public:
     Games();
-    void setHoursPlayed(float hp);
-    void setstorageSize(float s);
-    void setGameDetails(float hp, float s);
+    void setHoursPlayed(float hp);                       //data integrity checks (mutators)
+    void setstorageSize(float s);                        //data integrity checks (mutators)
+    void setGameDetails(float hp, float s);              //data integrity checks (mutators)
     void displayDetails();
 
     ~Games();
 
     void display();
-private:
-    float hoursPlayed;
+private:   //data hiding
+    float hoursPlayed;  
     float storageSize;
 
 };
