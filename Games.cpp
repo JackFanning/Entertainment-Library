@@ -20,7 +20,7 @@ void Games::display()
 
 void Games::setHoursPlayed(float hp)
 {
-    if (hp < 0){
+    if (hp < 0){            //Error checking in case the hours played is set to a value that doesn't fit
         cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;
         hoursPlayed = 1;
     }
@@ -32,7 +32,7 @@ void Games::setHoursPlayed(float hp)
 
 void Games::setstorageSize(float s)
 {
-    if (s < 0){
+    if (s < 0){            //Error checking in case the storage size is set to a value that doesn't fit
         cout << " \n" << endl;
         cout << "Game size should be more than 0GB! Setting default to 1GB.. \n" << endl;
         storageSize = 1;
@@ -48,7 +48,7 @@ void Games::setGameDetails(float hp, float s) {
     hoursPlayed = hp;
     storageSize = s;
 
-    if (storageSize < 0){
+    if (storageSize < 0){                //Error checking in case the storage size is set to a value that doesn't fit
         cout << "Game size should be more than 0GB! Setting default to 1GB.. \n" << endl;
         storageSize = 1;
     }
@@ -58,7 +58,7 @@ void Games::setGameDetails(float hp, float s) {
 
 
     if (hoursPlayed < 0){
-    cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;
+    cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;            //Error checking in case the hours played is set to a value that doesn't fit
     hoursPlayed = 1;
     }
     else{
