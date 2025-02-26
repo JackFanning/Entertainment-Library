@@ -23,7 +23,7 @@ Publisher ParentClass::getPublisher()
 }
 
 
-void ParentClass::display()
+void ParentClass::display()            //Parent class display function
 {
     cout << "\n Title: \t" << name
     << "\n Genre: \t" << genre << endl;
