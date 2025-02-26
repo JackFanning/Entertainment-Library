@@ -1,12 +1,12 @@
 #include "Books.h"
 #include "ParentClass.h"
 
-Books::Books() : current_page(0)
+Books::Books() : current_page(0)            //Constructor initialisation of current page - set to 0 initially
 {
     //ctor
 }
 
-Books::Books(string nam, string gen, int curPage)        //Overloaded constructor
+Books::Books(string nam, string gen, int curPage)        //Overloaded constructor & constructor initialisation
 {
     name = nam;
     genre = gen;
