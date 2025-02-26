@@ -3,7 +3,7 @@
 #include "ParentClass.h"
 #include "Publisher.h"
 
-class Games: public ParentClass          //Implemenation of inheritence relationship
+class Games: public ParentClass          //Implemenation of inheritence relationship: games class is inhereting from ParentClass
 {
 public:
     Games();
