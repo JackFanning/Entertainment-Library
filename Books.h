@@ -3,17 +3,17 @@
 #include "ParentClass.h"
 #include "Publisher.h"
 
-class Books: public ParentClass
+class Books: public ParentClass        //Inheritence: Books class is inheriting from the ParentClass
 {
     public:
         Books();
         virtual ~Books();
 
         int Getcurrent_page() { return current_page; }
-        void Setcurrent_page(int val) { current_page = val; }
+        void Setcurrent_page(int val) { current_page = val; }        //Mutator methods(setters)
 
         Books(string nam, string gen, int curPage);
-        void setBookDetails(int cp);
+        void setBookDetails(int cp);        //Mutator methods(setters)
         void display();
         int current_page;
 
