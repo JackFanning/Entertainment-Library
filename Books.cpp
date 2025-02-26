@@ -26,7 +26,7 @@ void Books::setBookDetails(int cp) {
 
 void Books::display()
 {
-    ParentClass::display();
+    ParentClass::display();        //Overriding function from the ParentClass
     cout << " Current Page: \t" << Getcurrent_page() << endl;
 }
 
