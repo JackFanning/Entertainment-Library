@@ -1,6 +1,6 @@
 #include "ParentClass.h"
 
-ParentClass::ParentClass() : name("N/A"), genre("N/A")
+ParentClass::ParentClass() : name("N/A"), genre("N/A")            //constructor initialisation list
 {
     //ctor
 }
