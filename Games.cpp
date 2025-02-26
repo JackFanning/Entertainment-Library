@@ -6,7 +6,7 @@ Games::~Games()
 }
 
 
-Games::Games() : hoursPlayed(0), storageSize(0)
+Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisation list
 {
 
 }
