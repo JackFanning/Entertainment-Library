@@ -1,5 +1,8 @@
 #include "Publisher.h"
 
+
+
+//Constructor Initialisation list
 Publisher::Publisher() : noOfReleases(0), namePublisher("N/A"), dateFounded("N/A"), upcomingTitles("N/A"), releasedTitles("N/A")
 {
     //ctor
