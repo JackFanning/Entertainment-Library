@@ -15,6 +15,8 @@ class Publisher
         Publisher();
         virtual ~Publisher();
 
+
+        //Mutator methods (setters)
         int GetnoOfReleases() { return noOfReleases; }
         void SetnoOfReleases(int val) { noOfReleases = val; }
         string GetnamePublisher() { return namePublisher; }
@@ -31,7 +33,7 @@ class Publisher
 
     protected:
 
-    private:
+    private:        //Data hiding
         int noOfReleases;
         string namePublisher;
         string dateFounded;
