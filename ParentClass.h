@@ -16,7 +16,6 @@ class ParentClass: public Publisher                 //Implementation of inherita
         string name;
         string genre;
 
-        Publisher getPublisher();
         bool setPublisher(Publisher* p);                //Data integrity: mutator methods
     protected:
 
