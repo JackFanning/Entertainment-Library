@@ -2,7 +2,7 @@
 #define PARENTCLASS_H
 #include "Publisher.h"
 
-const int MAX_P = 2;
+const int MAX_P = 2;                                //
 
 class ParentClass: public Publisher                 //Implementation of inheritance relationship: ParentClass is inhereting from the Publisher Class
 {
