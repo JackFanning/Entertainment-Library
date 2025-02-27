@@ -1,9 +1,9 @@
 #ifndef GAMES_H
 #define GAMES_H
-#include "ParentClass.h"
+#include "Library.h"
 #include "Publisher.h"
 
-class Games: public ParentClass          //Implemenation of inheritence relationship: games class is inhereting from ParentClass
+class Games: public Library          //Implemenation of inheritence relationship: games class is inhereting from Library
 {
 public:
     Games();
@@ -16,7 +16,7 @@ public:
 
     void display();
 private:   //data hiding
-    float hoursPlayed;  
+    float hoursPlayed;
     float storageSize;
 
 };

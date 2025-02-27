@@ -1,9 +1,9 @@
 #ifndef BOOKS_H
 #define BOOKS_H
-#include "ParentClass.h"
+#include "Library.h"
 #include "Publisher.h"
 
-class Books: public ParentClass        //Inheritence: Books class is inheriting from the ParentClass
+class Books: public Library        //Inheritence: Books class is inheriting from the Library
 {
     public:
         Books();

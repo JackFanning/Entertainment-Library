@@ -1,5 +1,5 @@
 #include "Books.h"
-#include "ParentClass.h"
+#include "Library.h"
 
 Books::Books() : current_page(0)            //Constructor initialisation of current page - set to 0 initially
 {
@@ -26,7 +26,7 @@ void Books::setBookDetails(int cp) {
 
 void Books::display()
 {
-    ParentClass::display();        //Overriding function from the ParentClass
+    Library::display();        //Overriding function from the Library
     cout << " Current Page: \t" << Getcurrent_page() << endl;
 }
 

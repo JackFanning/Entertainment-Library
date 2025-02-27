@@ -15,6 +15,6 @@ int main()
     g1.display();
     g1.setHoursPlayed(123);
     g1.display();
-    b1.setPublisher(p1);
+    b1.setPublisher(&p1);
     return 0;
 }
