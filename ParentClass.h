@@ -2,7 +2,7 @@
 #define PARENTCLASS_H
 #include "Publisher.h"
 
-const int MAX_P = 2;                                //
+const int MAX_P = 2;                                //Using const to set a limit to number of publishers
 
 class ParentClass: public Publisher                 //Implementation of inheritance relationship: ParentClass is inhereting from the Publisher Class
 {
