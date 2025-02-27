@@ -1,9 +1,9 @@
 #ifndef GAMES_H
 #define GAMES_H
-#include "Library.h"
+#include "MediaItem.h"
 #include "Publisher.h"
 
-class Games: public Library          //Implemenation of inheritence relationship: games class is inhereting from Library
+class Games: public MediaItem          //Implemenation of inheritence relationship: games class is inhereting from MediaItem
 {
 public:
     Games();

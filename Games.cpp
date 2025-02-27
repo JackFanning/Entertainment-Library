@@ -13,7 +13,7 @@ Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisat
 
 void Games::display()
 {
-    Library::display();                    //Overiding function from the Library
+    MediaItem::display();                    //Overiding function from the MediaItem
     cout << " Hours Played: \t" << hoursPlayed << endl;
     cout << " Storage Size: \t" << storageSize << "GB" << endl;
 }
