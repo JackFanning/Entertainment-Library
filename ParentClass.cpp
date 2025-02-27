@@ -11,17 +11,14 @@ void ParentClass::setDetails(string n, string g)
     genre = g;
 }
 
-void ParentClass::setPublisher(Publisher p)
+bool ParentClass::setPublisher(Publisher* p)
 {
-    publisher = p;
-    cout << "\npublisher set\n";
+    if (p_cnt < MAX_P){
+        publisher[p_cnt] = p;
+        p_cnt++;
+        return true;
+    }
 }
-
-Publisher ParentClass::getPublisher()
-{
-    return publisher;
-}
-
 
 void ParentClass::display()            //Parent class display function
 {
