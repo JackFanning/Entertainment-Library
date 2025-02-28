@@ -12,21 +12,21 @@ using std::ostream;
 class Publisher
 {
     public:
-        Publisher();
-        virtual ~Publisher();
+        Publisher();            // default parameterless constructor 
+        virtual ~Publisher();   //destructor
 
 
-        //Mutator methods (setters)
-        int GetnoOfReleases() { return noOfReleases; }
-        void SetnoOfReleases(int val) { noOfReleases = val; }
-        string GetnamePublisher() { return namePublisher; }
-        void SetnamePublisher(string val) { namePublisher = val; }
-        string GetdateFounded() { return dateFounded; }
-        void SetdateFounded(string val) { dateFounded = val; }
-        string GetupcomingTitles() { return upcomingTitles; }
-        void SetupcomingTitles(string val) { upcomingTitles = val; }
-        string GetreleasedTitles() { return releasedTitles; }
-        void SetreleasedTitles(string val) { releasedTitles = val; }
+        
+        int GetnoOfReleases() { return noOfReleases; }                  //accessor (get) methods
+        void SetnoOfReleases(int val) { noOfReleases = val; }           //mutator (set) methods
+        string GetnamePublisher() { return namePublisher; }             //accessor (get) methods
+        void SetnamePublisher(string val) { namePublisher = val; }      //mutator (set) methods
+        string GetdateFounded() { return dateFounded; }                 //accessor (get) methods
+        void SetdateFounded(string val) { dateFounded = val; }          //mutator (set) methods
+        string GetupcomingTitles() { return upcomingTitles; }           //accessor (get) methods
+        void SetupcomingTitles(string val) { upcomingTitles = val; }    //mutator (set) methods
+        string GetreleasedTitles() { return releasedTitles; }           //accessor (get) methods
+        void SetreleasedTitles(string val) { releasedTitles = val; }    //mutator (set) methods
 
 
         void setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released);
