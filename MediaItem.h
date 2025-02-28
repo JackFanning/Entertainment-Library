@@ -7,7 +7,7 @@ const int MAX_P = 2;                                //Using const to set a limit
 class MediaItem: public Publisher                 //Implementation of inheritance relationship: MediaItem is inhereting from the Publisher Class
 {
     public:
-        MediaItem();
+        MediaItem();                        // default parameterless constructor 
         virtual ~MediaItem();
 
         void display();
@@ -16,9 +16,12 @@ class MediaItem: public Publisher                 //Implementation of inheritanc
         string name;
         string genre;
 
-        bool setPublisher(Publisher* p);                //Data integrity: mutator methods
+        bool setPublisher(Publisher* p);                
+        
     protected:
 
+
+    //Data integrity: mutator methods
     private:
         int p_cnt=0;
         Publisher* publisher[MAX_P];
