@@ -13,7 +13,7 @@ Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisat
 
 void Games::display()
 {
-    MediaItem::display();                    //Overiding function from the MediaItem
+    MediaItem::display();                    //Overiding function from the MediaItem class
     cout << " Hours Played: \t" << hoursPlayed << endl;
     cout << " Storage Size: \t" << storageSize << "GB" << endl;
 }
@@ -44,7 +44,9 @@ void Games::setstorageSize(float s)
 }
 
 
-void Games::setGameDetails(float hp, float s) {
+void Games::setGameDetails(string n, string g, float hp, float s) {
+    name = n;
+    genre = g;
     hoursPlayed = hp;
     storageSize = s;
 
