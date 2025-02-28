@@ -3,18 +3,18 @@
 #include "MediaItem.h"
 #include "Publisher.h"
 
-class Books: public MediaItem        //Inheritence: Books class is inheriting from the MediaItem
+class Books: public MediaItem        //Inheritence: Books class is inheriting from the MediaItem class
 {
     public:
-        Books();
+        Books();                    // default parameterless constructor 
         virtual ~Books();
 
-        int Getcurrent_page() { return current_page; }
+        int Getcurrent_page() { return current_page; }               //accessor (get) methods   
         void Setcurrent_page(int val) { current_page = val; }        //Mutator methods(setters)
 
-        Books(string nam, string gen, int curPage);
+        Books(string nam, string gen, int curPage);         //Overloaded constructor with 3 parameters
         void setBookDetails(int cp);        //Mutator methods(setters)
-        void display();
+        void display();                     //accessor (get) methods
         int current_page;
 
     protected:
