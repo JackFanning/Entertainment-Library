@@ -6,7 +6,7 @@ Publisher::Publisher() : noOfReleases(0), namePublisher("N/A"), dateFounded("N/A
     //ctor
 }
 
-Publisher::Publisher(int NoR, string namePub, string date, string upcoming, string released)
+Publisher::Publisher(int NoR, string namePub, string date, string upcoming, string released)  //Overloaded Constructor with 5 parameters
 {
     noOfReleases = NoR;
     namePublisher = namePub;
