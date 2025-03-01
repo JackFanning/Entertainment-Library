@@ -24,5 +24,11 @@ int main()
     b1.setPublisher(&p1);
     b1.display();
     cout << p1;
+
+    Games g2("Halo", "Shooter", 2, -4);
+    g2.display();
+
+    Books b2("Harry Potter", "Action", -3);
+    b2.display();
     return 0;
 }
