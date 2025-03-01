@@ -7,6 +7,7 @@ class Games: public MediaItem          //Implemenation of inheritence relationsh
 {
 public:
     Games();                            // default parameterless constructor
+    Games(string n, string g, float hp, float s); //Overloaded constructor with 4 parameters
 
     void display();
 
