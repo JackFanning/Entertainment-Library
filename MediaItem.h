@@ -4,7 +4,7 @@
 
 const int MAX_P = 2;                                //Using const to set a limit to number of publishers
 
-class MediaItem            //Implementation of inheritance relationship: MediaItem is inhereting from the Publisher Class
+class MediaItem          
 {
     public:
         MediaItem();                        // default parameterless constructor
