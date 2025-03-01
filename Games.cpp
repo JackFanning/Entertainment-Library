@@ -20,6 +20,25 @@ Games::Games(string n, string g, float hp, float s)        //Overloaded construc
     genre = g;
     hoursPlayed = hp;
     storageSize = s;
+
+    if (storageSize < 0){                //Error checking in case the storage size is set to a value that doesn't fit
+        cout << "\n Game size should be more than 0GB! Setting default to 1GB.. \n" << endl;
+        storageSize = 1;
+    }
+    else {
+        storageSize = s;
+    }
+
+
+    if (hoursPlayed < 0){
+    cout << "\n Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;            //Error checking in case the hours played is set to a value that doesn't fit
+    hoursPlayed = 1;
+    }
+    else{
+    hoursPlayed = hp;
+    }
+
+
 }
 
 
