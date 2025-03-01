@@ -6,7 +6,7 @@ Books::Books() : current_page(0)            //Constructor initialisation of curr
     //ctor
 }
 
-Books::Books(string nam, string gen, int curPage)        //Overloaded constructor & constructor initialisation
+Books::Books(string nam, string gen, int curPage)        //Overloaded constructor
 {
     name = nam;
     genre = gen;
