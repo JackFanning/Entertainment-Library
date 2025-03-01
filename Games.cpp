@@ -11,12 +11,42 @@ Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisat
 
 }
 
+Games::Games(string n, string g, float hp, float s)        //Overloaded constructor with 4 parameters
+{
+    name = n;
+    genre = g;
+    hoursPlayed = hp;
+    storageSize = s;
+}
+
+
+
 void Games::display()
 {
     MediaItem::display();                    //Overiding function from the MediaItem class
+
+    if (storageSize < 0){                //Error checking in case the storage size is set to a value that doesn't fit
+        cout << "Game size should be more than 0GB! Setting default to 1GB.. \n" << endl;
+        storageSize = 1;
+    }
+    else {
+        storageSize = storageSize;
+    }
+
+
+    if (hoursPlayed < 0){
+    cout << "Hours Played must be greater than 0! Setting default to 1 hour.. \n" << endl;            //Error checking in case the hours played is set to a value that doesn't fit
+    hoursPlayed = 1;
+    }
+    else{
+    hoursPlayed = hoursPlayed;
+    }
+
     cout << " Hours Played: \t" << hoursPlayed << endl;
     cout << " Storage Size: \t" << storageSize << "GB" << endl;
 }
+
+
 
 void Games::setHoursPlayed(float hp)
 {
