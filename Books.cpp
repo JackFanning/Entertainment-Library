@@ -12,12 +12,20 @@ Books::Books(string nam, string gen, int curPage)        //Overloaded constructo
     name = nam;
     genre = gen;
     current_page = curPage;
+
+    if (curPage <= 0){
+        cout << "\n Current page should be more than 0! Setting default to Page 1.. \n" << endl;       //Error checking so the current page value isn't negative
+        current_page = 1;
+    }
+    else {
+        current_page = curPage;
+    }
 }
 
 void Books::setBookDetails(int cp) {
 
     if (cp <= 0){
-        cout << "Current page should be more than 0! Setting default to Page 1.. \n" << endl;       //Error checking so the current page value isn't negative
+        cout << "\n Current page should be more than 0! Setting default to Page 1.. \n" << endl;       //Error checking so the current page value isn't negative
         current_page = 1;
     }
     else {
