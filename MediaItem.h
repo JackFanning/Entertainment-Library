@@ -20,8 +20,6 @@ class MediaItem: public Publisher                 //Implementation of inheritanc
         
     protected:
 
-
-    //Data integrity: mutator methods
     private:
         int p_cnt=0;
         Publisher* publisher[MAX_P];
