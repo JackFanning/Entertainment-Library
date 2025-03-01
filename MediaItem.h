@@ -4,10 +4,10 @@
 
 const int MAX_P = 2;                                //Using const to set a limit to number of publishers
 
-class MediaItem: public Publisher                 //Implementation of inheritance relationship: MediaItem is inhereting from the Publisher Class
+class MediaItem            //Implementation of inheritance relationship: MediaItem is inhereting from the Publisher Class
 {
     public:
-        MediaItem();                        // default parameterless constructor 
+        MediaItem();                        // default parameterless constructor
         virtual ~MediaItem();
 
         void display();
@@ -16,13 +16,14 @@ class MediaItem: public Publisher                 //Implementation of inheritanc
         string name;
         string genre;
 
-        bool setPublisher(Publisher* p);                
-        
+        bool setPublisher(Publisher* val);
+        Publisher* publisher[MAX_P];
+
     protected:
 
     private:
         int p_cnt=0;
-        Publisher* publisher[MAX_P];
+
 };
 
 #endif // MediaItem_H

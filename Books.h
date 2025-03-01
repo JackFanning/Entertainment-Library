@@ -6,10 +6,10 @@
 class Books: public MediaItem        //Inheritence: Books class is inheriting from the MediaItem class
 {
     public:
-        Books();                    // default parameterless constructor 
+        Books();                    // default parameterless constructor
         virtual ~Books();
 
-        int Getcurrent_page() { return current_page; }               //accessor (get) methods   
+        int Getcurrent_page() { return current_page; }               //accessor (get) methods
         void Setcurrent_page(int val) { current_page = val; }        //Mutator methods(setters)
 
         Books(string nam, string gen, int curPage);         //Overloaded constructor with 3 parameters

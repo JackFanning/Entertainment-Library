@@ -1,14 +1,12 @@
 #include "Publisher.h"
 
-
-
 //Constructor Initialisation list
 Publisher::Publisher() : noOfReleases(0), namePublisher("N/A"), dateFounded("N/A"), upcomingTitles("N/A"), releasedTitles("N/A")
 {
     //ctor
 }
 
-void Publisher::setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released)
+Publisher::Publisher(int NoR, string namePub, string date, string upcoming, string released)
 {
     noOfReleases = NoR;
     namePublisher = namePub;
@@ -16,6 +14,19 @@ void Publisher::setPublisherDetails(int NoR, string namePub, string date, string
     upcomingTitles = upcoming;
     releasedTitles = released;
     cout << "working";
+}
+
+void Publisher::display()
+{
+    cout << "\n Publisher:\t" << namePublisher
+    << "\n Date Founded:\t" << dateFounded << endl;
+}
+
+ostream& operator << (ostream& ostr, const Publisher& p)
+{
+    ostr << "\n Publisher:\t" << p.namePublisher
+    << "\n Date Founded:\t" << p.dateFounded << endl;
+    return ostr;
 }
 
 Publisher::~Publisher()

@@ -12,11 +12,10 @@ using std::ostream;
 class Publisher
 {
     public:
-        Publisher();            // default parameterless constructor 
+        Publisher();            // default parameterless constructor
+        Publisher(int NoR, string namePub, string date, string upcoming, string released);
         virtual ~Publisher();   //destructor
 
-
-        
         int GetnoOfReleases() { return noOfReleases; }                  //accessor (get) methods
         void SetnoOfReleases(int val) { noOfReleases = val; }           //mutator (set) methods
         string GetnamePublisher() { return namePublisher; }             //accessor (get) methods
@@ -30,13 +29,14 @@ class Publisher
 
 
         void setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released);
-
+        string namePublisher;
+        string dateFounded;
+        friend ostream& operator<< (ostream& ostr, const Publisher& p);
+        void display();
     protected:
 
     private:        //Data hiding
         int noOfReleases;
-        string namePublisher;
-        string dateFounded;
         string upcomingTitles;
         string releasedTitles;
 };
