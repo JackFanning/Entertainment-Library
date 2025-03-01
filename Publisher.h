@@ -13,7 +13,7 @@ class Publisher
 {
     public:
         Publisher();            // default parameterless constructor
-        Publisher(int NoR, string namePub, string date, string upcoming, string released);
+        Publisher(int NoR, string namePub, string date, string upcoming, string released);  //Overloaded COnstructor
         virtual ~Publisher();   //destructor
 
         int GetnoOfReleases() { return noOfReleases; }                  //accessor (get) methods
