@@ -1,39 +1,64 @@
-#include "MediaItem.h"
-#include "Publisher.h"
+//This file contains the implementation code for the mediaItem class data member functions
+#include "mediaItem.h"
 
-MediaItem::MediaItem() : name("N/A"), genre("N/A")            //constructor initialisation list
-{
-    //ctor
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+mediaItem::mediaItem() {
 }
 
-void MediaItem::setDetails(string n, string g)
-{
-    name = n;
-    genre = g;
+mediaItem::mediaItem(string n) {
+	setName(n);
 }
 
-bool MediaItem::setPublisher(Publisher* val)
-{
-    if (p_cnt < MAX_P){
-        publisher[p_cnt] = val;
-        p_cnt++;
-        return true;
-    }
-    return false;
-}
-
-void MediaItem::display()            //Parent class display function
-{
-    for (int i = 0; i < p_cnt; i++) {
-        if (publisher[i] != nullptr) {  // Check if the publisher pointer is valid
-            publisher[i]->display();
-        }
-    }
-    cout << "\n Title: \t" << name
-    << "\n Genre: \t" << genre << endl;
-}
-
-MediaItem::~MediaItem()
-{
+mediaItem::~mediaItem() {
 
 }
+string mediaItem::getName()  {
+	return name;
+}
+
+void mediaItem::setName(string n) {
+	name = n;
+}
+
+int mediaItem::getDuration() {
+	return duration;
+}
+
+void mediaItem::setDuration(int d) {
+	duration = d;
+}
+
+void mediaItem::display() {
+	cout<<"Item '"<<getName() <<"' has duration "<<getDuration()<<" minutes"<<endl;
+}
+
+//non member functions (notice they do not have 'mediaItem::' in front of their names) implemented here - used for overloading operators
+bool operator==(mediaItem pl1, mediaItem pl2) {
+   return (pl1.getName()==pl2.getName() && pl1.getDuration()==pl2.getDuration());
+}
+
+bool operator!=(mediaItem pl1, mediaItem pl2) {
+    return !(pl1==pl2);
+}
+
+bool operator<(mediaItem pl1, mediaItem pl2) {
+    return (pl1.getName()<pl2.getName());
+	//return (pl1.getDuration()<pl2.getDuration());
+}
+
+bool operator>(mediaItem pl1, mediaItem pl2) {
+   return (pl1.getName()>pl2.getName());
+}
+
+ostream& operator<< (ostream &cout, mediaItem pli) {
+	cout<<"Using overloaded ostream operator - Item '"<<pli.getName() <<"' has duration "<<pli.getDuration()<<" minutes"<<endl;
+    return cout;
+}
+
+
+
