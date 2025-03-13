@@ -8,6 +8,11 @@ using namespace std;
 
 int Book::nofBooks = 0;
 
+Book::Book()
+{
+
+}
+
 Book::Book(string n) : mediaItem(n) {
 	setName(n);
 	nofBooks++;

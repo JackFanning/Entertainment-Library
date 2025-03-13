@@ -68,16 +68,16 @@ int main() {
 		cout << BookNames[i] << endl;
 	}
 	/* Now for tests using our user defined types */
-	book b1;
+	Book b1;
 	b1.setName("The National"); //instantiate/create a Solopublisher object using the user defined constructor
-	b1.setEarnings(986000);
-	b1.setNofSingles(567);
-	b1.setNofbookMembers(5);
+	//b1.setEarnings(986000);
+	//b1.setNofSingles(567);
+	//b1.setNofbookMembers(5);
 
 	Book s1("Lemon World");
 	s1.setDuration(3);
 	s1.setGenre("indie");
-	s1.setAuthor(b1);
+	//s1.setAuthor(b1);
 
 	Book s2("Tampourine Man");
 	s2.setGenre("indie");
@@ -108,24 +108,24 @@ int main() {
 	/* tests to show the use of the overloaded less than ('<') operator with the STL sort algorithm */
 	cout<<"******************************"<<endl;
 	cout<<"testing that the sort algorithm works for Book objects - this requires that the less than ('<') operator is overloaded for Book objects"<<endl;
-	library pl1("Paula's library", 8);
+	Library pl1("Paula's library", 8);
 	pl1.addItem(s1);
 	pl1.addItem(s2);
 	pl1.addItem(s3);
 	cout<<"******************************"<<endl;
 	cout<<"order before sorting based on the criteria specified in the overloaded less than ('<') operator"<<endl;
 	pl1.displayDetails(); //order before sorting by name
-	pl1.sortlibraryByDefault(); //uses the overloaded < operator in the mediaItem as the sorting criterion
+	//pl1.sortlibraryByDefault(); //uses the overloaded < operator in the mediaItem as the sorting criterion
 	cout<<"******************************"<<endl;
 	cout<<"order after sorting based on the overloaded less than ('<') operator: "<<endl;
 	pl1.displayDetails();
 
-	pl1.sortlibraryByDuration(); //uses the overloaded < operator in the mediaItem as the sorting criterion
+	//pl1.sortlibraryByDuration(); //uses the overloaded < operator in the mediaItem as the sorting criterion
 	cout<<"******************************"<<endl;
 	cout<<"order after sorting by duration: "<<endl;
 	pl1.displayDetails();
 
-	pl1.sortlibraryByName(); //uses the overloaded < operator in the mediaItem as the sorting criterion
+	//pl1.sortlibraryByName(); //uses the overloaded < operator in the mediaItem as the sorting criterion
 	cout<<"******************************"<<endl;
 	cout<<"order after sorting by name: "<<endl;
 	pl1.displayDetails();

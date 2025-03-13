@@ -15,7 +15,7 @@ private: //data member variables declared here
 
 public: //data member functions declared here
     Book(string name);
-
+    Book();
     void setGenre(string);
     string getGenre();
 
@@ -23,15 +23,15 @@ public: //data member functions declared here
 
 
     void display();
-
+/*
     Author getAuthor() {
 		return Author;
 	}
 
-	void setAuthor(Author art) {
-		Author = art;
+	void setAuthor(Author auth) {
+		Author = auth;
 	}
-
+*/
 
 	//Lab5 - overloaded comparison operators implemented as friend functions
 	//friend bool operator>= ( Book,  Book);
