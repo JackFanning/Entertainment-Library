@@ -1,29 +1,38 @@
-#ifndef MediaItem_H
-#define MediaItem_H
-#include "Publisher.h"
+//file containing interface for mediaItem class
+#ifndef _mediaItem_
+#define _mediaItem_
 
-const int MAX_P = 2;                                //Using const to set a limit to number of publishers
+#include <string>
+using namespace std;
 
-class MediaItem          
-{
-    public:
-        MediaItem();                        // default parameterless constructor
-        virtual ~MediaItem();
+class mediaItem {
+private: //data member variables declared here
+    string name;
+    int duration;
 
-        void display();
-        void setDetails(string n, string g);            //Data integrity: mutator methods
+public: //data member functions declared here
+    mediaItem();
+    mediaItem(string name);
+    virtual ~mediaItem();
 
-        string name;
-        string genre;
-
-        bool setPublisher(Publisher* val);
-        Publisher* publisher[MAX_P];
-
-    protected:
-
-    private:
-        int p_cnt=0;
-
+    void setName(string);
+    string getName();
+    void setDuration(int);
+    int getDuration();
+    virtual void display();
 };
 
-#endif // MediaItem_H
+//Lab5 - overloaded equality and inequality operators implemented as normal functions
+bool operator==(mediaItem, mediaItem);
+bool operator!= (mediaItem, mediaItem);
+bool operator<(mediaItem, mediaItem);
+bool operator>(mediaItem, mediaItem);
+
+//Lab5 - overloaded ostream operator implemented as normal functions
+ostream& operator<< (ostream &cout, mediaItem pli);
+
+#endif /* _mediaItem_ */
+
+
+
+
