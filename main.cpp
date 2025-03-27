@@ -6,7 +6,7 @@
 int main()
 {
     cout << "Hello world!" << endl;
-    Books b1;
+    Books b1, b2("To kill a mockingbird", "Drama", 15, 150), b3("Song of Ice & Fire", "Fantasy", 12, 1000);
     cout << "\nt1";
     Games g1;
     cout << "\nt2";
@@ -24,11 +24,11 @@ int main()
     b1.setPublisher(&p1);
     b1.display();
     cout << p1;
+    if (b2 < b3){
+        cout << "b2 is less than b3";
+    }else if(b2 > b3) {
+        cout << "b2 is greater than b3";
+    }
 
-    Games g2("Halo", "Shooter", 2, -4);
-    g2.display();
-
-    Books b2("Harry Potter", "Action", -3);
-    b2.display();
     return 0;
 }
