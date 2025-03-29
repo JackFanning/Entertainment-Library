@@ -16,6 +16,26 @@ Publisher::Publisher(int NoR, string namePub, string date, string upcoming, stri
     cout << "working";
 }
 
+
+// Deep copy constructor
+Publisher::Publisher(const Publisher& other)
+    : noOfReleases(other.noOfReleases),
+      namePublisher(other.namePublisher),
+      dateFounded(other.dateFounded),
+      upcomingTitles(other.upcomingTitles),
+      releasedTitles(other.releasedTitles) {
+    // Simply copy all the string and int values
+}
+
+
+
+
+Publisher::Publisher(string nam, string date) : namePublisher(nam), dateFounded(date)
+{
+    
+}
+
+
 void Publisher::display()
 {
     cout << "\n Publisher:\t" << namePublisher
