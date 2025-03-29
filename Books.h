@@ -20,6 +20,18 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         int current_page;
         int pageCount;
 
+        Books(const Books& other);     // Copy constructor for deep copy
+        Books& operator=(const Books& other); // Assignment operator for deep copy
+
+        /*
+        Books(const Books& objBeingCopied); //shallow Copy constructor
+        Books& operator=(const Books &objBeingCopied); //shallow Assignment operator
+        */
+
+        Books(string nam, string gen, int curPage, int pageC, Publisher* pub);
+
+        Publisher* publisher;
+
         friend bool operator<( Books b1,  Books b2);
         friend bool operator>( Books b1,  Books b2);
 
