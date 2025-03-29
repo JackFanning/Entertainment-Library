@@ -23,6 +23,13 @@ public:
 
     ~Games();
 
+     //Overloaded comparison operators
+    friend bool operator<(const Games& g1, const Games& g2);
+    friend bool operator>(const Games& g1, const Games& g2);
+
+    friend bool operator==(const Games& g1, const Games& g2);
+    friend bool operator!=(const Games& g1, const Games& g2);
+
 private:   //data hiding
     float hoursPlayed;
     float storageSize;
