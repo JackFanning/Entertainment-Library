@@ -43,7 +43,7 @@ Books::Books(const Books& other)
     }
 }
 
-//Deep copy assignment operator
+//Deep copy overloaded assignment operator
 Books& Books::operator=(const Books& other) {
     if (this == &other) {
         return *this;  // Skip self-assignment
@@ -107,7 +107,7 @@ Books &Books::operator=(const Books &objBeingCopied)    //shallow Assignment ope
 }
 */
 
-
+//Overloaded comparison operators
 bool operator<( Books b1,  Books b2)
 {
     return (b1.GetpageCount() < b2.GetpageCount());
@@ -118,10 +118,25 @@ bool operator>( Books b1,  Books b2)
     return (b1.GetpageCount() > b2.GetpageCount());
 }
 
-bool orderByName(Books b1, Books b2)
-{
-    return (b1.GetName() < b2.GetName());
+bool operator<=(Books b1, Books b2) {
+	return b1.GetpageCount()<= b2.GetpageCount();
 }
+
+bool operator>=(Books b1, Books b2) {
+	return b1.GetpageCount()>= b2.GetpageCount();
+}
+
+bool operator==(Books b1, Books b2)
+{
+   return (b1.GetName()==b2.GetName() && b1.GetpageCount()==b2.GetpageCount());
+}
+
+bool operator!=(Books b1, Books b2)
+{
+    return !(b1==b2);
+}
+
+
 /*
 void Books::sortByName() {
 	cout<<"sorting playlist"<<endl;
