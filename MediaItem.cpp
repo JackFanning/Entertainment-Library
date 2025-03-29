@@ -6,6 +6,11 @@ MediaItem::MediaItem() : name("N/A"), genre("N/A")            //constructor init
     //ctor
 }
 
+void MediaItem::setName(string n)
+{
+    name = n;
+}
+
 void MediaItem::setDetails(string n, string g)
 {
     name = n;
