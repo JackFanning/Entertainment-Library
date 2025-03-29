@@ -3,9 +3,11 @@
 #include "MediaItem.h"
 #include "Publisher.h"
 
-Games::~Games()
-{
-
+// Destructor
+Games::~Games() {
+    if (publisher != nullptr) {
+        delete publisher;  // Clean up dynamically allocated memory for Publisher
+    }
 }
 
 
@@ -22,6 +24,56 @@ Games::Games(string n, string g, float hp, float s)        //Overloaded construc
     storageSize = s;
 }
 
+Games::Games(string n, string g, float hp, float s, Publisher* pub)        //Overloaded constructor with 4 parameters
+{
+    name = n;
+    genre = g;
+    hoursPlayed = hp;
+    storageSize = s;
+    publisher = pub;
+}
+
+
+// Deep copy constructor
+Games::Games(const Games& other)
+    : hoursPlayed(other.hoursPlayed), storageSize(other.storageSize), publisher(nullptr) {
+    name = other.name;
+    genre = other.genre;
+
+    // Deep copy of Publisher pointer
+    if (other.publisher != nullptr) {
+        publisher = new Publisher(*other.publisher); // Create a new Publisher object and copy its content
+    } else {
+        publisher = nullptr;
+    }
+}
+
+
+// Deep copy assignment operator
+Games& Games::operator=(const Games& other) {
+    if (this == &other) {
+        return *this;  // Skip self-assignment
+    }
+
+    // Shallow copy for simple types
+    name = other.name;
+    genre = other.genre;
+    hoursPlayed = other.hoursPlayed;
+    storageSize = other.storageSize;
+
+    // Deep copy of the Publisher pointer
+    if (other.publisher != nullptr) {
+        // Deallocate any existing memory
+        if (publisher != nullptr) {
+            delete publisher;
+        }
+        publisher = new Publisher(*other.publisher); // Create a new Publisher object and copy its content
+    } else {
+        publisher = nullptr;
+    }
+
+    return *this;
+}
 
 
 void Games::display()
@@ -29,6 +81,11 @@ void Games::display()
     MediaItem::display();                    //Overiding function from the MediaItem class
     cout << " Hours Played: \t" << hoursPlayed << endl;
     cout << " Storage Size: \t" << storageSize << "GB" << endl;
+    if (publisher != nullptr) {
+        cout << "Publisher: " << publisher->GetnamePublisher() << endl;
+    } else {
+        cout << "No Publisher assigned." << endl;
+    }
 }
 
 
