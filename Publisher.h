@@ -14,7 +14,9 @@ class Publisher
     public:
         Publisher();            // default parameterless constructor
         Publisher(int NoR, string namePub, string date, string upcoming, string released);
-        virtual ~Publisher();   //destructor
+        
+        Publisher(string nam, string date);
+        virtual ~Publisher(); // destructor
 
         int GetnoOfReleases() { return noOfReleases; }                  //accessor (get) methods
         void SetnoOfReleases(int val) { noOfReleases = val; }           //mutator (set) methods
@@ -26,6 +28,9 @@ class Publisher
         void SetupcomingTitles(string val) { upcomingTitles = val; }    //mutator (set) methods
         string GetreleasedTitles() { return releasedTitles; }           //accessor (get) methods
         void SetreleasedTitles(string val) { releasedTitles = val; }    //mutator (set) methods
+
+
+        Publisher(const Publisher& other); // Copy constructor for deep copy
 
 
         void setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released);
