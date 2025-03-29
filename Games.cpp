@@ -139,3 +139,26 @@ void Games::setGameDetails(string n, string g, float hp, float s) {
     hoursPlayed = hp;
     }
 }
+
+
+//Overloaded comparison operators
+bool operator<(const Games& g1, const Games& g2) {
+    return g1.storageSize < g2.storageSize;
+}
+
+bool operator>(const Games& g1, const Games& g2) {
+    return g1.storageSize > g2.storageSize;
+}
+
+bool operator==(const Games& g1, const Games& g2){
+   
+return (g1.name == g2.name &&
+        g1.genre == g2.genre &&
+        g1.hoursPlayed == g2.hoursPlayed &&
+        g1.storageSize == g2.storageSize);
+}
+    
+
+bool operator!=(const Games& g1, const Games& g2){
+    return !(g1 == g2);
+}
