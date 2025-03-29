@@ -8,6 +8,7 @@ class MediaItem            //Implementation of inheritance relationship: MediaIt
 {
     public:
         MediaItem();                        // default parameterless constructor
+        void setName(string n);
         virtual ~MediaItem();
 
         void display();
