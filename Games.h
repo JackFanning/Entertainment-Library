@@ -9,6 +9,8 @@ public:
     Games();                            // default parameterless constructor
     Games(string n, string g, float hp, float s); //Overloaded constructor with 4 parameters
 
+    Games(string n, string g, float hp, float s, Publisher *pub);
+
     void display();
 
     void setHoursPlayed(float hp);                       //data integrity checks (mutators)
@@ -16,11 +18,16 @@ public:
     void setGameDetails(string n, string g, float hp, float s);
     void setGameDetails(float hp, float s); // data integrity checks (mutators)
 
+    Games(const Games& other); // Deep copy constructor
+    Games& operator=(const Games& other); // Deep copy assignment operator
+
     ~Games();
 
 private:   //data hiding
     float hoursPlayed;
     float storageSize;
+
+    Publisher* publisher;
 
 };
 
