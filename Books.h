@@ -32,8 +32,13 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
 
         Publisher* publisher;
 
-        friend bool operator<( Books b1,  Books b2);
-        friend bool operator>( Books b1,  Books b2);
+        //Overloaded comparison operators
+        friend bool operator<(Books b1,  Books b2);
+        friend bool operator>(Books b1,  Books b2);
+        friend bool operator<=(Books b1, Books b2);
+        friend bool operator>=(Books b1, Books b2);
+        friend bool operator==(Books b1, Books b2);
+        friend bool operator!=(Books b1, Books b2);
 
         //void sortByName();
         //vector<Books> item;
