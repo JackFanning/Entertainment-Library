@@ -296,15 +296,6 @@ cout << "===== Testing Games Class =====\n" << endl;
     cin >> game4;  // User enters game details
     cout << "\nGame Entered:\n" << game4 << endl;
 
-
-
-
-
-
-
-
-
-
     return 0;
 
 }
