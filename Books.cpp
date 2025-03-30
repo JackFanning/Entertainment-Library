@@ -19,7 +19,6 @@ Books::Books(string nam, string gen, int curPage, int pageC)        //Overloaded
 // Parameterized constructor
 Books::Books(string nam, string gen, int curPage, int pageC, Publisher* pub)
 {
-    // Assign the Publisher pointer passed in the constructor
     name = nam;
     genre = gen;
     current_page = curPage;
@@ -43,13 +42,14 @@ Books::Books(const Books& other)
     }
 }
 
+
 //Deep copy overloaded assignment operator
 Books& Books::operator=(const Books& other) {
     if (this == &other) {
         return *this;  // Skip self-assignment
     }
 
-    // Shallow copy for simple types
+    // Shallow copy for simple types/ non pointer types
     name = other.name;
     genre = other.genre;
     current_page = other.current_page;
@@ -107,6 +107,7 @@ Books &Books::operator=(const Books &objBeingCopied)    //shallow Assignment ope
 }
 */
 
+
 //Overloaded comparison operators
 bool operator<( Books b1,  Books b2)
 {
@@ -134,6 +135,42 @@ bool operator==(Books b1, Books b2)
 bool operator!=(Books b1, Books b2)
 {
     return !(b1==b2);
+}
+
+
+//Overloaded ostream operator
+ostream& operator<<(ostream& os, const Books& book) {
+    os << "Book Name: " << book.name << "\n"
+       << "Genre: " << book.genre << "\n"
+       << "Current Page: " << book.current_page << "\n"
+       << "Total Pages: " << book.pageCount << "\n";
+    if (book.publisher != nullptr) {
+        os << "Publisher: " << book.publisher->GetnamePublisher() << "\n";
+    } else {
+        os << "No Publisher assigned.\n";
+    }
+    return os;
+}
+
+//Overloaded istream operator
+istream& operator>>(istream& is, Books& book) {
+    cout << "Enter book name: ";
+    is >> book.name;  // Takes single-word input; spaces will break input
+
+    cout << "Enter genre: ";
+    is >> book.genre; 
+
+    cout << "Enter current page: ";
+    is >> book.current_page;
+
+    cout << "Enter total page count: ";
+    is >> book.pageCount;
+
+    // Ask for Publisher name and set the Publisher object
+    book.publisher = new Publisher();
+    is >> *book.publisher;  // Calls the overloaded istream operator for Publisher
+
+    return is;
 }
 
 
