@@ -2,6 +2,7 @@
 #include "Games.h"
 #include "MediaItem.h"
 #include "Publisher.h"
+
 Books::Books() : current_page(0), pageCount(0)          //Constructor initialisation of current page - set to 0 initially
 {
     //ctor
@@ -154,11 +155,12 @@ ostream& operator<<(ostream& os, const Books& book) {
 
 //Overloaded istream operator
 istream& operator>>(istream& is, Books& book) {
+    
     cout << "Enter book name: ";
-    is >> book.name;  // Takes single-word input; spaces will break input
+    getline(is, book.name);  // Allows multi-word input
 
     cout << "Enter genre: ";
-    is >> book.genre; 
+    getline(is, book.genre);  // Allows multi-word input
 
     cout << "Enter current page: ";
     is >> book.current_page;
@@ -172,6 +174,7 @@ istream& operator>>(istream& is, Books& book) {
 
     return is;
 }
+
 
 
 /*
@@ -203,10 +206,16 @@ void Books::display()
 
 }
 
+/*
 // Destructor to deallocate memory
 Books::~Books() {
     if (publisher != nullptr) {
         delete publisher;  // Release memory allocated for the Publisher object
         publisher = nullptr; // Set the pointer to null to avoid double deletion
     }
+}
+*/
+
+Books::~Books() {
+    delete publisher; // Free dynamically allocated memory
 }
