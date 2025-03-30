@@ -6,10 +6,10 @@
 // Destructor
 Games::~Games() {
     if (publisher != nullptr) {
-        delete publisher;  // Clean up dynamically allocated memory for Publisher
+        delete publisher;  // Release memory allocated for the Publisher object
+        publisher = nullptr; // Set the pointer to null to avoid double deletion
     }
 }
-
 
 Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisation list
 {
@@ -79,8 +79,8 @@ Games& Games::operator=(const Games& other) {
 void Games::display()
 {
     MediaItem::display();                    //Overiding function from the MediaItem class
-    cout << " Hours Played: \t" << hoursPlayed << endl;
-    cout << " Storage Size: \t" << storageSize << "GB" << endl;
+    cout << "Hours Played: \t" << hoursPlayed << endl;
+    cout << "Storage Size: \t" << storageSize << "GB" << endl;
     if (publisher != nullptr) {
         cout << "Publisher: " << publisher->GetnamePublisher() << endl;
     } else {
@@ -162,3 +162,41 @@ return (g1.name == g2.name &&
 bool operator!=(const Games& g1, const Games& g2){
     return !(g1 == g2);
 }
+
+
+//overloaded ostream operator
+ostream& operator<<(ostream& os, const Games& game) {
+    os << "Game Name: " << game.name << "\n"
+       << "Genre: " << game.genre << "\n"
+       << "Hours Played: " << game.hoursPlayed << "\n"
+       << "Storage Size: " << game.storageSize << " GB\n";
+    if (game.publisher != nullptr) {
+        os << "Publisher: " << game.publisher->GetnamePublisher() << "\n";
+    } else {
+        os << "No Publisher assigned.\n";
+    }
+    return os;
+}
+
+//istream overloaded operator
+istream& operator>>(istream& is, Games& game) {
+    is.ignore(); // Ignore any leftover newline character from previous inputs
+    
+    std::cout << "Enter game name: ";
+    getline(is, game.name);  // Allows multi-word input
+
+    std::cout << "Enter genre: ";
+    getline(is, game.genre); // Allows multi-word input
+
+    std::cout << "Enter hours played: ";
+    is >> game.hoursPlayed;
+
+    std::cout << "Enter storage size (GB): ";
+    is >> game.storageSize;
+
+    game.publisher = new Publisher();
+    is >> *game.publisher;  // Calls the Publisher's overloaded istream operator
+
+    return is;
+}
+
