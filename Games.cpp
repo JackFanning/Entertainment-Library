@@ -3,12 +3,10 @@
 #include "MediaItem.h"
 #include "Publisher.h"
 
-// Destructor
-Games::~Games() {
-    if (publisher != nullptr) {
+// Destructor for dynamic memory
+Games::~Games() 
+{
         delete publisher;  // Release memory allocated for the Publisher object
-        publisher = nullptr; // Set the pointer to null to avoid double deletion
-    }
 }
 
 Games::Games() : hoursPlayed(0), storageSize(0)        //constructor initialisation list
@@ -24,7 +22,7 @@ Games::Games(string n, string g, float hp, float s)        //Overloaded construc
     storageSize = s;
 }
 
-Games::Games(string n, string g, float hp, float s, Publisher* pub)        //Overloaded constructor with 4 parameters
+Games::Games(string n, string g, float hp, float s, Publisher* pub)        //Overloaded constructor with 5 parameters
 {
     name = n;
     genre = g;
@@ -75,7 +73,7 @@ Games& Games::operator=(const Games& other) {
     return *this;
 }
 
-
+//display function
 void Games::display()
 {
     MediaItem::display();                    //Overiding function from the MediaItem class
@@ -181,7 +179,7 @@ ostream& operator<<(ostream& os, const Games& game) {
 //istream overloaded operator
 istream& operator>>(istream& is, Games& game) {
     
-    cout << "Enter game name: ";
+    cout << "\n Enter game name: ";
     getline(is, game.name);  // Allows multi-word input
 
     cout << "Enter genre: ";
