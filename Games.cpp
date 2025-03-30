@@ -180,18 +180,17 @@ ostream& operator<<(ostream& os, const Games& game) {
 
 //istream overloaded operator
 istream& operator>>(istream& is, Games& game) {
-    is.ignore(); // Ignore any leftover newline character from previous inputs
     
-    std::cout << "Enter game name: ";
+    cout << "Enter game name: ";
     getline(is, game.name);  // Allows multi-word input
 
-    std::cout << "Enter genre: ";
-    getline(is, game.genre); // Allows multi-word input
+    cout << "Enter genre: ";
+    getline(is, game.genre); 
 
-    std::cout << "Enter hours played: ";
+    cout << "Enter hours played: ";
     is >> game.hoursPlayed;
 
-    std::cout << "Enter storage size (GB): ";
+    cout << "Enter storage size (GB): ";
     is >> game.storageSize;
 
     game.publisher = new Publisher();
