@@ -40,6 +40,10 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         friend bool operator==(Books b1, Books b2);
         friend bool operator!=(Books b1, Books b2);
 
+        //Overloaded ostream & istream operators
+        friend ostream& operator<<(ostream& os, const Books& book);
+        friend istream& operator>>(istream& is, Books& book);
+
         //void sortByName();
         //vector<Books> item;
     protected:
