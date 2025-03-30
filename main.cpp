@@ -105,7 +105,6 @@ int main()
     */
 
     
-    Publisher* p1 = new Publisher(10,"Aaa","2003","Up","Rel");
     
     /*
     Books b1("Harry Potter","Action",23,100,p1);
@@ -128,7 +127,7 @@ int main()
     */
 
 
-
+    /*
     Publisher* p2 = new Publisher(3,"Mojang","2009","Coming","Out");
     Games g1("Minecraft","Adventure",13,20,p2);
 
@@ -176,14 +175,14 @@ int main()
     if (b1<b2){
         cout << "B1 has less than b2" << endl;
     }
-    */
+    
 
     cout << "\n" << game4 << endl;
 
 
-    Books book2("Harry","Fantasy",4,400,p1);
-    cout << "\n " << book2 << endl;
-    
+    Books book9("Harry","Fantasy",4,400,p1);
+    cout << "\n " << book9 << endl;
+    */
 
 /*
     Games game;
@@ -194,10 +193,118 @@ int main()
     cout << "\n" << game << endl;
 */
 
-    Books book;
-    cin >> book;
+cout << "===== Testing Books Class =====\n" << endl;
 
-    cout << "\n" << book << endl;
+// Create Publisher object dynamically
+Publisher* pub1 = new Publisher(5, "Penguin Books", "1935", "Upcoming Book A", "Released Book X");
+
+// Test Parameterized Constructor
+Books book1("The Great Gatsby", "Fiction", 50, 200, pub1);
+cout << "Book 1 (Original):\n" << book1 << endl;
+
+// Test Copy Constructor
+Books book2 = book1;  // Calls the deep copy constructor
+cout << "Book 2 (Copy Constructed from Book 1):\n" << book2 << endl;
+
+// Modify the original book's publisher name
+pub1->SetnamePublisher("Changed Publisher");
+cout << "\nAfter modifying book1's publisher:\n";
+cout << "Book 1:\n" << book1 << endl;
+cout << "Book 2 (Should remain unchanged):\n" << book2 << endl;
+
+// Test Assignment Operator
+Publisher* pub2 = new Publisher(10, "HarperCollins", "1989", "Upcoming Book B", "Released Book Y");
+Books book3("Moby Dick", "Adventure", 20, 500, pub2);
+cout << "\nBefore Assignment, Book 3:\n" << book3 << endl;
+
+book3 = book1;  // Calls assignment operator
+cout << "After Assignment (Book 3 = Book 1):\n" << book3 << endl;
+
+// Modify book1's publisher again
+pub1->SetnamePublisher("Final Change");
+cout << "\nAfter modifying book1's publisher AGAIN:\n";
+cout << "Book 1:\n" << book1 << endl;
+cout << "Book 3 (Should remain unchanged after assignment):\n" << book3 << endl;
+
+// Test Comparison Operators
+cout << "\n===== Testing Comparison Operators =====\n";
+if (book1 > book3) {
+    cout << "Book 1 has more pages than Book 3.\n";
+}
+if (book1 == book3) {
+    cout << "Book 1 and Book 3 are identical.\n";
+} else {
+    cout << "Book 1 and Book 3 are NOT identical.\n";
+}
+
+// Test I/O Operators
+cout << "\n===== Testing Overloaded I/O Operators =====\n";
+Books book4;
+cin >> book4;  // User enters book details
+cout << "\nBook Entered:\n" << book4 << endl;
+
+
+
+
+cout << "===== Testing Games Class =====\n" << endl;
+
+    // Create Publisher object dynamically
+    Publisher* p1 = new Publisher(3, "Ubisoft", "1986", "Upcoming Game A", "Released Game X");
+
+    // Test Parameterized Constructor
+    Games game1("Assassin's Creed", "Action", 40.5, 50.2, p1);
+    cout << "Game 1 (Original):\n" << game1 << endl;
+
+    // Test Copy Constructor
+    Games game2 = game1;  // Calls the deep copy constructor
+    cout << "Game 2 (Copy Constructed from Game 1):\n" << game2 << endl;
+
+    // Modify the original game's publisher name
+    p1->SetnamePublisher("Changed Ubisoft");
+    cout << "\nAfter modifying game1's publisher:\n";
+    cout << "Game 1:\n" << game1 << endl;
+    cout << "Game 2 (Should remain unchanged):\n" << game2 << endl;
+
+    // Test Assignment Operator
+    Publisher* p2 = new Publisher(5, "Electronic Arts", "1982", "Upcoming Game B", "Released Game Y");
+    Games game3("FIFA 24", "Sports", 10.0, 40.0, p2);
+    cout << "\nBefore Assignment, Game 3:\n" << game3 << endl;
+
+    game3 = game1;  // Calls assignment operator
+    cout << "After Assignment (Game 3 = Game 1):\n" << game3 << endl;
+
+    // Modify game1's publisher again
+    p1->SetnamePublisher("Final Change");
+    cout << "\nAfter modifying game1's publisher AGAIN:\n";
+    cout << "Game 1:\n" << game1 << endl;
+    cout << "Game 3 (Should remain unchanged after assignment):\n" << game3 << endl;
+
+    // Test Comparison Operators
+    cout << "\n===== Testing Comparison Operators =====\n";
+    if (game1 > game3) {
+        cout << "Game 1 has more storage size than Game 3.\n";
+    }
+    if (game1 == game3) {
+        cout << "Game 1 and Game 3 are identical.\n";
+    } else {
+        cout << "Game 1 and Game 3 are NOT identical.\n";
+    }
+
+    // Test I/O Operators
+    cout << "\n===== Testing Overloaded I/O Operators =====\n";
+    Games game4;
+    cin >> game4;  // User enters game details
+    cout << "\nGame Entered:\n" << game4 << endl;
+
+
+
+
+
+
+
+
+
+
     return 0;
 
 }
