@@ -13,7 +13,7 @@ Publisher::Publisher(int NoR, string namePub, string date, string upcoming, stri
     dateFounded = date;
     upcomingTitles = upcoming;
     releasedTitles = released;
-    cout << "working";
+    cout << "working \n";
 }
 
 
@@ -42,12 +42,22 @@ void Publisher::display()
     << "\n Date Founded:\t" << dateFounded << endl;
 }
 
+//Overloaded ostream operator
 ostream& operator << (ostream& ostr, const Publisher& p)
 {
     ostr << "\n Publisher:\t" << p.namePublisher
     << "\n Date Founded:\t" << p.dateFounded << endl;
     return ostr;
 }
+
+//Overloaded istream operators
+istream& operator>>(istream& is, Publisher& pub) {
+    cout << "Enter publisher name: ";
+    is >> pub.namePublisher;  // Single-word input
+
+    return is;
+}
+
 
 Publisher::~Publisher()
 {
