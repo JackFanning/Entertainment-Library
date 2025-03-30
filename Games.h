@@ -9,7 +9,7 @@ public:
     Games();                            // default parameterless constructor
     Games(string n, string g, float hp, float s); //Overloaded constructor with 4 parameters
 
-    Games(string n, string g, float hp, float s, Publisher *pub);
+    Games(string n, string g, float hp, float s, Publisher *pub);   //Overloaded constructor with 5 parameters
 
     void display();
 
