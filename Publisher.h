@@ -36,7 +36,11 @@ class Publisher
         void setPublisherDetails(int NoR, string namePub, string date, string upcoming, string released);
         string namePublisher;
         string dateFounded;
+
+        //Overloaded ostream & istream operators
         friend ostream& operator<< (ostream& ostr, const Publisher& p);
+        friend istream& operator>>(istream& is, Publisher& pub);
+
         void display();
     protected:
 
