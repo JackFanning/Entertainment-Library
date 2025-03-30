@@ -53,7 +53,7 @@ ostream& operator << (ostream& ostr, const Publisher& p)
 //Overloaded istream operators
 istream& operator>>(istream& is, Publisher& pub) {
     cout << "Enter publisher name: ";
-    is >> pub.namePublisher;  // Single-word input
+    is >> pub.namePublisher;  
 
     return is;
 }
