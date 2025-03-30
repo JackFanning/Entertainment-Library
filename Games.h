@@ -21,14 +21,19 @@ public:
     Games(const Games& other); // Deep copy constructor
     Games& operator=(const Games& other); // Deep copy assignment operator
 
-    ~Games();
+    ~Games();//destructor
 
      //Overloaded comparison operators
     friend bool operator<(const Games& g1, const Games& g2);
     friend bool operator>(const Games& g1, const Games& g2);
-
     friend bool operator==(const Games& g1, const Games& g2);
     friend bool operator!=(const Games& g1, const Games& g2);
+
+
+    //Overloaded ostream & istream operators
+    friend ostream& operator<<(ostream& os, const Games& game);
+    friend istream& operator>>(istream& is, Games& game);
+
 
 private:   //data hiding
     float hoursPlayed;
