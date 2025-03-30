@@ -23,16 +23,16 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         Books(const Books& other);     // Copy constructor for deep copy
         Books& operator=(const Books& other); // Assignment operator for deep copy
 
-        
+
 
         /*
         Books(const Books& objBeingCopied); //shallow Copy constructor
         Books& operator=(const Books &objBeingCopied); //shallow Assignment operator
         */
 
-        Books(string nam, string gen, int curPage, int pageC, Publisher* pub);
+        Books(string nam, string gen, int curPage, int pageC, Publisher* pub);  //Overloaded constructor with 5 parameters, including publisher
 
-        Publisher* publisher;
+        Publisher* publisher; //publisher pointer
 
         //Overloaded comparison operators
         friend bool operator<(Books b1,  Books b2);
@@ -43,8 +43,8 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         friend bool operator!=(Books b1, Books b2);
 
         //Overloaded ostream & istream operators
-        friend ostream& operator<<(ostream& os, const Books& book);
-        friend istream& operator>>(istream& is, Books& book);
+        friend ostream& operator<<(ostream& os, const Books& book); //ostream operator
+        friend istream& operator>>(istream& is, Books& book);   //istream operator
 
         //void sortByName();
         //vector<Books> item;
