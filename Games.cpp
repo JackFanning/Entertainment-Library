@@ -2,6 +2,7 @@
 #include "Games.h"
 #include "MediaItem.h"
 #include "Publisher.h"
+#include <fstream>  // for file I/O
 
 // Destructor for dynamic memory
 Games::~Games() 
@@ -20,6 +21,8 @@ Games::Games(string n, string g, float hp, float s)        //Overloaded construc
     genre = g;
     hoursPlayed = hp;
     storageSize = s;
+
+    publisher = nullptr; //publisher set to nothing
 }
 
 Games::Games(string n, string g, float hp, float s, Publisher* pub)        //Overloaded constructor with 5 parameters
@@ -197,3 +200,46 @@ istream& operator>>(istream& is, Games& game) {
     return is;
 }
 
+//sort criterion (by hours played)
+bool Games::operator<(const Games& other) const {
+    return hoursPlayed < other.hoursPlayed; 
+}
+
+
+// Write Game to file
+void Games::writeToFile(const string& filename) const {
+    ofstream outFile(filename, ios::app);
+    if (!outFile) {
+        cout << "Could not open file for writing.\n" << endl;
+        return;
+    }
+
+    outFile << name << '\n'
+            << genre << '\n'
+            << hoursPlayed << '\n'
+            << storageSize << '\n';
+
+    outFile.close();
+}
+
+
+// Read Games from file
+void Games::readFromFile(const string& filename, vector<Games>& games) {
+    ifstream inFile(filename);
+    if (!inFile) {
+        cout << "Could not open file for reading.\n" << endl;
+        return;
+    }
+
+    string name, genre;
+    float hoursPlayed, storageSize;
+
+    while (getline(inFile, name) && getline(inFile, genre)
+           && inFile >> hoursPlayed && inFile >> storageSize) {
+
+        inFile.ignore();  // Skip newline after storageSize
+        games.push_back(Games(name, genre, hoursPlayed, storageSize));
+    }
+
+    inFile.close();
+}
