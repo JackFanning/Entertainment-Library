@@ -16,7 +16,10 @@ public:
     void setHoursPlayed(float hp);                       //data integrity checks (mutators)
     void setstorageSize(float s);                        //data integrity checks (mutators)
     void setGameDetails(string n, string g, float hp, float s);
+    bool operator<(const Games &other) const;
     void setGameDetails(float hp, float s); // data integrity checks (mutators)
+    float GetHoursPlayed() const { return hoursPlayed; }
+    string GetName() const { return name; }
 
     Games(const Games& other); // Deep copy constructor
     Games& operator=(const Games& other); // Deep copy assignment operator
@@ -33,6 +36,11 @@ public:
     //Overloaded ostream & istream operators
     friend ostream& operator<<(ostream& os, const Games& game);
     friend istream& operator>>(istream& is, Games& game);
+
+    //File saving/reading
+    void writeToFile(const std::string& filename) const;
+    static void readFromFile(const std::string& filename, std::vector<Games>& games);
+
 
 
 private:   //data hiding
