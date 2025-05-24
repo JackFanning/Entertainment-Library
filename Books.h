@@ -2,6 +2,8 @@
 #define BOOKS_H
 #include "MediaItem.h"
 #include "Publisher.h"
+#include "algorithm"
+#include "vector"
 
 class Books: public MediaItem        //Inheritence: Books class is inheriting from the MediaItem class
 {
@@ -9,10 +11,11 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         Books();                    // default parameterless constructor
         virtual ~Books();
 
-        int Getcurrent_page() { return current_page; }               //accessor (get) methods
+        int Getcurrent_page() const { return current_page; }               //accessor (get) methods
         void Setcurrent_page(int val) { current_page = val; }        //Mutator methods(setters)
-        int GetpageCount() { return pageCount; }               //accessor (get) methods
+        int GetpageCount() const { return pageCount; }               //accessor (get) methods
         void SetpageCount(int val) { pageCount = val; }
+        string GetName() const { return name; }
 
         Books(string nam, string gen, int current_page, int pageCount);         //Overloaded constructor with 3 parameters
         void setBookDetails(int cp);        //Mutator methods(setters)
@@ -35,19 +38,27 @@ class Books: public MediaItem        //Inheritence: Books class is inheriting fr
         Publisher* publisher; //publisher pointer
 
         //Overloaded comparison operators
+        /*
         friend bool operator<(Books b1,  Books b2);
         friend bool operator>(Books b1,  Books b2);
         friend bool operator<=(Books b1, Books b2);
         friend bool operator>=(Books b1, Books b2);
         friend bool operator==(Books b1, Books b2);
         friend bool operator!=(Books b1, Books b2);
+        */
 
         //Overloaded ostream & istream operators
         friend ostream& operator<<(ostream& os, const Books& book); //ostream operator
         friend istream& operator>>(istream& is, Books& book);   //istream operator
 
-        //void sortByName();
-        //vector<Books> item;
+      
+
+        bool operator<(const Books& other) const;
+
+
+        void writeToFile(const string& filename) const;
+        static void readFromFile(const string& filename, vector<Books>& books);
+
     protected:
 
     private:
