@@ -2,8 +2,9 @@
 #include "Games.h"
 #include "MediaItem.h"
 #include "Publisher.h"
+#include <fstream> 
 
-Books::Books() : current_page(0), pageCount(0)          //Constructor initialisation of current page - set to 0 initially
+Books::Books() : current_page(0), pageCount(0), publisher(nullptr)         //Constructor initialisation of current page - set to 0 initially
 {
     //ctor
 }
@@ -14,6 +15,8 @@ Books::Books(string nam, string gen, int curPage, int pageC)        //Overloaded
     genre = gen;
     current_page = curPage;
     pageCount = pageC;
+
+    publisher = nullptr;
 }
 
 
@@ -47,28 +50,31 @@ Books::Books(const Books& other)
 //Deep copy overloaded assignment operator
 Books& Books::operator=(const Books& other) {
     if (this == &other) {
-        return *this;  // Skip self-assignment
+        return *this;  // Self-assignment
     }
 
-    // Shallow copy for simple types/ non pointer types
+    // Clean up existing publisher to avoid memory leak or crash
+    if (publisher != nullptr) {
+        delete publisher;
+        publisher = nullptr;
+    }
+
+    // Copy basic data
     name = other.name;
     genre = other.genre;
     current_page = other.current_page;
     pageCount = other.pageCount;
 
-     // Deep copy of the Publisher pointer
-     if (other.publisher != nullptr) {
-        // Deallocate any existing memory
-        if (publisher != nullptr) {
-            delete publisher;
-        }
-        publisher = new Publisher(*other.publisher); // Create a new Publisher object and copy its content
+    // Deep copy publisher
+    if (other.publisher != nullptr) {
+        publisher = new Publisher(*other.publisher);
     } else {
         publisher = nullptr;
     }
 
     return *this;
 }
+
 
 
 /*
@@ -176,13 +182,6 @@ istream& operator>>(istream& is, Books& book) {
 }
 
 
-
-/*
-void Books::sortByName() {
-	cout<<"sorting playlist"<<endl;
-	sort(items.begin(), items.end(), orderByName);
-}
-*/
 void Books::setBookDetails(int cp) {
 
     if (cp <= 0){
@@ -206,16 +205,54 @@ void Books::display()
 
 }
 
-/*
-// Destructor to deallocate memory
-Books::~Books() {
-    if (publisher != nullptr) {
-        delete publisher;  // Release memory allocated for the Publisher object
-        publisher = nullptr; // Set the pointer to null to avoid double deletion
-    }
-}
-*/
 
 Books::~Books() {
     delete publisher; // Free dynamically allocated memory
+}
+
+
+//STL default sort by title alphabetically (e.g. std::sort(vector.begin(), vector.end()))
+bool Books::operator<(const Books& other) const {
+    return name < other.name; //Default sorting alphabetically by name
+}
+
+
+
+// WRITE TO FILE
+void Books::writeToFile(const string& filename) const {
+    ofstream outFile(filename, ios::app); 
+
+    if (!outFile) {
+        cout << "Could not open file for writing.\n" <<endl;
+        return;
+    }
+
+    outFile << name << '\n'
+            << genre << '\n'
+            << current_page << '\n'
+            << pageCount << '\n';
+
+    outFile.close();
+}
+
+// READ FROM FILE
+void Books::readFromFile(const string& filename, vector<Books>& books) {
+    ifstream inFile(filename);
+
+    if (!inFile) {
+        cout << "Could not open file for reading.\n" << endl;
+        return;
+    }
+
+    string name, genre;
+    int current_page, pageCount;
+
+    while (getline(inFile, name) && getline(inFile, genre)
+        && inFile >> current_page && inFile >> pageCount) {
+        
+        inFile.ignore(); // Skip newline after pageCount
+        books.push_back(Books(name, genre, current_page, pageCount));
+    }
+
+    inFile.close();
 }
